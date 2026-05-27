@@ -39,6 +39,14 @@ app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+// Welcome Route
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    message: 'Welcome to PostSphere API. Use /api/posts for CRUD operations.'
+  });
+});
+
 // Health Check Endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({
